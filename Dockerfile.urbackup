@@ -9,5 +9,5 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     echo "urbackup-server urbackup/backuppath string /backups" | debconf-set-selections && \
     apt-get install -y --no-install-recommends urbackup-server && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
-ENTRYPOINT ["bash", "-c", "chown urbackup: /backups /var/urbackup && urbackupsrv \"$@\""]
+ENTRYPOINT ["bash", "-c", "chown urbackup: /backups /var/urbackup && urbackupsrv \"$@\"", "bash"]
 CMD ["run"]
